@@ -1,63 +1,63 @@
 <?php
-/*
- * Description: Template for displaying category archives in the Taste Delivery theme.
- */
-
-// Access the global WP_Query object
-global $wp_query;
-
-// Include the header
 get_header();
 ?>
-
-    <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="background-image: url('<?php echo get_random_post_image(get_queried_object_id()); ?>');">
         <div class="hero-text">
-            <?php
-            // Display the category title and description
-            echo '<h1>' . single_cat_title('', false) . '</h1>';
-            echo '<p>' . category_description() . '</p>';
-            ?>
+            <h1><?php echo single_cat_title('', false); ?></h1>
+            <p><?php echo category_description(); ?></p>
         </div>
-        <!-- Display a random image from the category -->
-        <img src="<?php echo get_random_post_image(get_queried_object_id()); ?>" alt="Random kuva" class="img-fluid">
     </section>
-
-    <!-- Main Content Container -->
     <div class="container">
         <main>
-            <!-- Products Section -->
             <section class="products">
                 <h2><?php echo single_cat_title('', false); ?></h2>
-                <div class="row">
+                <div class="products-grid">
                     <?php
-                    // Query arguments to fetch products for this category
+                    // Get the current category ID
+                    $category_id = get_queried_object_id();
+
+                    // Custom query to fetch all products in this category
                     $args = [
-                        'cat' => get_queried_object_id(),
-                        'posts_per_page' => 3,
+                        'cat' => $category_id,
+                        'posts_per_page' => -1, // Fetch all posts
                         'post_status' => 'publish',
+                        'post_type' => 'post',
                     ];
 
-                    // Create a new WP_Query instance
                     $products = new WP_Query($args);
 
-                    // Generate the product articles
-                    generate_article($products);
+                    // Track displayed post IDs to prevent duplicates
+                    $displayed_posts = [];
 
-                    // Reset post data
+                    if ($products->have_posts()) :
+                        // Temporarily store posts to filter duplicates
+                        $unique_posts = [];
+                        while ($products->have_posts()) : $products->the_post();
+                            $post_id = get_the_ID();
+                            if (!in_array($post_id, $displayed_posts)) :
+                                $unique_posts[] = $post_id;
+                                $displayed_posts[] = $post_id;
+                            endif;
+                        endwhile;
+
+                        // Reset the query to the beginning
+                        $products->rewind_posts();
+
+                        // Create a new query with unique posts
+                        $args['post__in'] = $unique_posts ?: [0]; // Fallback to avoid empty query
+                        $args['orderby'] = 'post__in'; // Preserve the order of unique posts
+                        $unique_products = new WP_Query($args);
+
+                        // Pass the unique query to generate_article
+                        generate_article($unique_products);
+                    else :
+                        echo '<p>No products found in this category.</p>';
+                    endif;
+
                     wp_reset_postdata();
                     ?>
                 </div>
             </section>
         </main>
-
-        <?php
-        // Include the sidebar
-        get_sidebar();
-        ?>
     </div>
-
-<?php
-// Include the footer
-get_footer();
-?>
+<?php get_footer(); ?>
