@@ -11,8 +11,7 @@ get_header();
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
-            <h2>Our Products</h2>
-            <h3>Browse our delicious products and food items!</h3>
+
         </div>
         <?php if (has_custom_header()) : ?>
             <?php the_custom_header_markup(); ?>
@@ -27,6 +26,8 @@ get_header();
         <main>
             <!-- Products Section -->
             <section class="products">
+
+                <h2>List of Products</h2>
                 <div class="category-row">
                     <?php
                     // Define the Products category ID

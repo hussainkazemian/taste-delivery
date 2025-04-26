@@ -170,29 +170,9 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-left: 800px;
 }
 
-.hero-text {
-  position: absolute;
-  top: 50%;
-  right: 5%; /* Position the text on the right side with some padding from the edge */
-  transform: translateY(-50%); /* Vertically center the text */
-  color: #fff; /* Change text color to white to match the screenshot */
-}
-.hero-text h2 {
-  color: #833d3a; /* Update to white to match the screenshot */
-  text-align: right;
-  margin-right: 300px;
-  font-size: 1.0rem; /* Slightly larger to match the screenshot */
-}
-
-.hero-text h3 {
-  color: #833d3a; /* Update to white to match the screenshot */
-  text-align: right;
-  font-size: 0.8rem;
-  margin-right: 350px;
-
-}
 
 .hero img {
   width: 100%;
@@ -445,6 +425,7 @@ main {
 /* About Us Section Styles */
 .about {
   padding: 2rem 0;
+
 }
 
 .about h2 {

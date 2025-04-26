@@ -11,8 +11,6 @@ get_header();
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
-            <h2>About TastyDelivery</h2>
-            <h3>Contact us through below form.</h3>
         </div>
         <?php if (has_custom_header()) : ?>
             <?php the_custom_header_markup(); ?>
@@ -28,7 +26,7 @@ get_header();
             <!-- About Us Section -->
             <section class="about">
                 <h2>Our Story</h2>
-                <p>TastyDelivery was founded with a passion for delivering high-quality, delicious meals to our customers. We partner with local restaurants to bring you a variety of cuisines right to your doorstep.</p>
+                <p>TastyDelivery was founded with a passion for delivering high-quality, delicious and economic meals and products from warm to clod ones to our customers.  We partner with local restaurants to bring you a variety of products right to your doorstep.</p>
                 <h2>Contact Us</h2>
                 <!-- Contact Form -->
                 <form class="contact-form" id="contact-form" method="post">

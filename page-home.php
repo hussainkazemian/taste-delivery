@@ -7,9 +7,7 @@ get_header();
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
-            <h2>Welcome to Tasty Food Delivery Company</h2>
 
-            <h3>Order delicious products and meals<br>then WE delivered to your door!</h3>
         </div>
         <?php if (has_custom_header()) : ?>
             <?php the_custom_header_markup(); ?>
@@ -24,7 +22,10 @@ get_header();
         <main>
             <!-- Featured Products Section -->
             <section class="products">
-                <h2>Featured Products</h2>
+                <p>Welcome to Tasty Food Delivery Company</p>
+
+                <h2>Sample of Products</h2>
+
                 <div class="products-single-row">
                     <?php
                     // Query arguments to fetch featured products
