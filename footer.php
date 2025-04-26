@@ -1,12 +1,20 @@
 <?php defined('ABSPATH') or die('No script kiddies please!'); ?>
-</main>
 <footer class="bg-dark text-white py-4">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p>© <?php echo date('Y'); ?> This is a school project made by Hussain Kazemian.</p>
-            </div>
-
+        <!-- Navigation Menu -->
+        <div class="footer-nav-wrapper">
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'footer-menu',
+                'menu_class' => 'nav footer-nav',
+                'container' => 'nav',
+                'depth' => 1,
+            ]);
+            ?>
+        </div>
+        <!-- Copyright Notice -->
+        <div class="footer-copyright-wrapper">
+            <p class="footer-copyright">© <?php echo date('Y'); ?> This is a school project made by Hussain Kazemian.</p>
         </div>
     </div>
 </footer>

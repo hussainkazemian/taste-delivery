@@ -166,11 +166,10 @@ main {
 .hero {
   position: relative;
   width: 100%;
-  height: 400px; /* Increased height to match the screenshot */
+  height: 400px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-left: 800px;
 }
 
 
@@ -178,8 +177,8 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  margin-right: 100px;
-  margin-left: 200px;
+  margin-left: 220px;
+  border-radius: 20px;
 
 }
 
@@ -514,20 +513,60 @@ footer {
   width: 100%;
 }
 
-footer .nav a {
-  color: #fff;
-  margin: 0 0.5rem;
+footer .footer-nav-wrapper {
+  text-align: center;
+  margin-bottom: 1rem;
+  justify-content: space-between;
 }
 
-/* Media Queries */
-@media (min-width: 768px) {
-  .container {
-    padding: 0;
+footer .nav.footer-nav {
+  display: inline-flex; /* Use inline-flex to keep links in a row without taking full width */
+  justify-content: center;
+}
+footer .nav.footer-nav li {
+  list-style: none;
+
+}
+footer .nav.footer-nav a {
+  color: #fff;
+  margin: 0 1.5rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+
+}
+
+footer .nav.footer-nav a:hover {
+  color: #3498db;
+}
+
+footer .footer-copyright-wrapper {
+  text-align: center;
+}
+
+footer .footer-copyright {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  footer .nav.footer-nav {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
 
-  main {
+  footer .nav.footer-nav a {
+    margin: 0.5rem 1rem; /* Add vertical spacing on small screens if wrapping occurs */
+  }
+
+  footer .footer-copyright-wrapper {
+    text-align: center;
+  }
+}
+main {
     width: 100%;
   }
 
@@ -557,7 +596,7 @@ footer .nav a {
   .hero {
     height: 400px;
   }
-}
+
 
 @media (max-width: 991px) {
   .category-box,

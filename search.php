@@ -31,8 +31,6 @@ get_header();
     </main>
 
 <?php
-// Include the sidebar
-get_sidebar();
 
 // Include the footer
 get_footer();

@@ -99,4 +99,3 @@ function taste_delivery_breadcrumb_title($title, $type) {
     return $title;
 }
 add_filter('bcn_breadcrumb_title', 'taste_delivery_breadcrumb_title', 10, 2);
-
